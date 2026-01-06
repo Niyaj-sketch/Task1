@@ -1,0 +1,21 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8;
+contract SavingsBank{
+    address public owner;
+    constructor()
+    {
+        owner=msg.sender;
+     }
+     function deposit() public payable{
+     }
+     function getBalance() public view returns (uint){
+        return address(this).balance;
+     
+     }
+     function withdraw(uint _amount)public{
+        require(msg.sender==owner,"Withdrawal not allowed");
+        require(_amount<=getBalance(),"Insufficient Balance");
+        payable(owner).transfer(_amount);
+     }
+
+     }
