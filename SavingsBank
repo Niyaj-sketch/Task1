@@ -12,10 +12,10 @@ contract SavingsBank{
         return address(this).balance;
      
      }
-     function withdraw(uint _amount)public{
+     function withdraw(uint amount)public{
         require(msg.sender==owner,"Withdrawal not allowed");
-        require(_amount<=getBalance(),"Insufficient Balance");
-        payable(owner).transfer(_amount);
+        require(amount<=getBalance(),"Insufficient Balance");
+        payable(owner).transfer(amount);
      }
 
      }
